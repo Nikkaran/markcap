@@ -1,0 +1,11 @@
+pandas
+numpy
+statsmodels
+scikit-learn
+duckdb
+pyyaml
+pydantic
+plotly
+streamlit
+pytest
+ruff
