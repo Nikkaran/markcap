@@ -21,3 +21,8 @@ Code and test paths are planned, not written yet.
 | V13 | Number guard rejects text with a changed number | Our design | src/markcap/narrator/number_guard.py | tests/test_number_guard.py | UNVERIFIED | |
 | V14 | App stays within memory and load-time targets (set in P8) | Our design | app/streamlit_app.py | manual | UNVERIFIED | |
 | V15 | No secrets or personal paths in the repo | Our design | whole repo | scan in P10 | UNVERIFIED | |
+## P2 update (10 Nov 2026)
+
+V1 to V4: PASS. 21 tests passed (pytest 9.2.0, Python 3.11.9): 17 in tests/test_rules.py, 4 in tests/test_smoke.py.
+Code: src/markcap/rules.py. Tests: tests/test_rules.py.
+Note: the random additivity test cannot catch a missing centring step in Type 4. Only test_type4_category_hand_example does. Do not delete it.

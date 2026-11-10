@@ -37,3 +37,9 @@ TBD: Python version, `requirements.txt`, random seeds, run date.
 ## 6. Not claimed
 
 We do not claim the paper's deployed engine numbers (130+ metrics, 1.6 s, 400x). We cannot test them.
+## P2 notes (rules.py)
+
+- [ASSUMPTION] Type 1 pieces are labelled "change". The schema lists only volume, rate and share.
+- [ASSUMPTION] "Tolerance 1e-9" means relative 1e-9 with a 1e-9 floor. Absolute 1e-9 is not reachable in float64 for rupee-sized numbers.
+- [UNSPECIFIED] Table 1 does not say shares must be >= 0. We only enforce that they add up to 1.
+- The overall baseline rate is computed as the sum of p0 times rate0, which matches the paper's definition.
