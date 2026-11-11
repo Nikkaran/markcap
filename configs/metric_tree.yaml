@@ -1,0 +1,33 @@
+# Markcap v1 metric tree.
+# Source: Zhou et al., arXiv:2608.29735, Sec. 3, Table 1.
+# Regions and categories are not listed here. They come from the data,
+# so this file does not change when the dataset changes.
+# The causal link (AOV affects Orders) is added in P4, not here.
+
+name: markcap_v1
+root: revenue
+
+metrics:
+  revenue: {label: Revenue}
+  orders: {label: Orders}
+  aov: {label: Average order value}
+
+decompositions:
+  # Type 2 (product): Revenue = Orders x Average order value
+  - parent: revenue
+    rule: product
+    dimension: orders_x_aov
+    n_metric: orders
+    x_metric: aov
+
+  # Type 1 (sum): Orders = sum of the orders of each region
+  - parent: orders
+    rule: sum
+    dimension: region
+    members_from: region
+
+  # Type 4 (weighted average): AOV = sum of (order share x AOV) over the categories
+  - parent: aov
+    rule: weighted_average
+    dimension: category
+    members_from: category
